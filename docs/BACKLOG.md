@@ -36,19 +36,19 @@
 * **Quiero:** Registrarme e iniciar sesión utilizando mi correo electrónico como identificador único.
 * **Para:** Tener un acceso seguro y moderno sin requerir nombres de usuario obligatorios.
 * **Criterios de Aceptación (DoD):**
-  - [ ] Clase `User` heredando de `AbstractUser`.
-  - [ ] Atributo `email` único configurado como `USERNAME_FIELD`.
-  - [ ] Banderas booleanas para control de roles: `is_merchant` e `is_customer`.
-  - [ ] Directiva `AUTH_USER_MODEL` registrada en `settings.py` previa a la migración inicial.
-  - [ ] Migraciones generadas y aplicadas en base de datos.
+  - [x] Clase `User` heredando de `AbstractUser`.
+  - [x] Atributo `email` único configurado como `USERNAME_FIELD`.
+  - [x] Banderas booleanas para control de roles: `is_merchant` e `is_customer`.
+  - [x] Directiva `AUTH_USER_MODEL` registrada en `settings.py` previa a la migración inicial.
+  - [x] Migraciones generadas y aplicadas en base de datos.
 
 #### [US-03] Pipeline de Integración Continua (CI) con GitHub Actions
 * **Como:** Ingeniero a cargo del repositorio.
 * **Quiero:** Un flujo automatizado que valide el código en cada commit y Pull Request.
 * **Para:** Garantizar que ningún cambio rompa las pruebas o la configuración del sistema.
 * **Criterios de Aceptación (DoD):**
-  - [ ] Definición del workflow en `.github/workflows/backend-ci.yml`.
-  - [ ] Configuración del runner sobre Ubuntu con la versión correcta de Python.
-  - [ ] Instalación automática de dependencias desde `requirements.txt`.
-  - [ ] Ejecución del comando de verificación del sistema (`python manage.py check`).
-  - [ ] Ejecución de la suite de pruebas unitarias (`python manage.py test`).
+  - [x] Definición del workflow en `.github/workflows/backend-ci.yml`.
+  - [x] Configuración del runner sobre Ubuntu con la versión correcta de Python.
+  - [x] Instalación automática de dependencias desde `requirements.txt`.
+  - [x] Ejecución del comando de verificación del sistema (`python manage.py check`).
+  - [x] Ejecución de la suite de pruebas unitarias (`python manage.py test`).
