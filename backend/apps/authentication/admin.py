@@ -13,6 +13,13 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('is_merchant', 'is_customer', 'phone_number'),
         }),
     )
+    # Configuración de la pantalla de creación de un nuevo usuario
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide'),
+            'fields': ('email', 'username', 'password', 'is_merchant', 'is_costumer'),
+        }),
+    )
     
     list_display = ('email', 'username', 'is_merchant', 'is_customer', 'is_staff')
     search_fields = ('email', 'username')
