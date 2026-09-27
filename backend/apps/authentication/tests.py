@@ -9,7 +9,7 @@ class UserModelTests(TestCase):
 
     def test_create_customer_user(self):
         """A standard user should default to customer role."""
-        # Arrange % Act
+        # Arrange & Act
         user = User.objects.create_user(
             email='customer@example.com',
             username='customer_test',
