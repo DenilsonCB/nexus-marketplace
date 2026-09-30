@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # Third-party Apps
     'rest_framework',
+    'rest_framework_simplejwt',
 
     # Local Apps
     'apps.authentication'
@@ -139,3 +140,20 @@ MAILERS = {
 
 # Override default user model
 AUTH_USER_MODEL = 'authentication.User'
+
+# Django REST Framework Configuration
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+# Simple JWT Configuration
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+}
