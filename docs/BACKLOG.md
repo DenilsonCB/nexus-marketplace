@@ -1,54 +1,38 @@
 # Product Backlog & Sprints - Nexus Marketplace
 
 * **Autor / Responsable:** Brayan Denilson Choquehuanca Bedoya
-* **Metodología:** Desarrollo Ágil basado en Scrum / PSP (Personal Software Process)
+* **Metodología:** Desarrollo Ágil basado en Scrum / Kanban
 
 ---
 
-## 1. Épicas del Producto
+## 1. Épicas del Producto (Product Backlog)
 
-* [EP-01] Autenticación, Identidad y Control de Acceso Basado en Roles (RBAC).
-* [EP-02] Catálogo de Productos, Categorías y Gestión de Stock.
-* [EP-03] Carrito de Compras y Motor Transaccional de Checkout (ACID).
-* [EP-04] Pipeline de Integración y Entrega Continua (CI/CD) con GitHub Actions.
-* [EP-05] Frontend SPA con React, Vite y TypeScript.
+Estas son las piezas estructurales de alto nivel del proyecto. Cada una se descompone en Historias de Usuario más pequeñas.
+
+1. **[EPIC] Foundation & Core Infrastructure** (Configuración base, CI/CD, Base de datos).
+2. **[EPIC] Módulo de Autenticación y Perfiles de Usuario** (JWT, Roles, Registro).
+3. **[EPIC] Módulo de Catálogo y Búsqueda de Productos** (CRUD de productos, Filtros).
+4. **[EPIC] Módulo de Carrito y Checkout Transaccional** (Gestión de órdenes, Pagos).
+5. **[EPIC] Módulo de Panel de Vendedor / Merchant Dashboard** (Estadísticas, Inventario).
 
 ---
 
-## 2. Sprint 1: Infraestructura Base, Identidad y CI
+## 2. Historial de Sprints
 
-* **Sprint Goal:** Configurar el andamiaje del backend, establecer el pipeline de validación automática con GitHub Actions y desplegar el modelo de usuario personalizado con soporte de roles.
+### Sprint 1: Infraestructura Base e Identidad
+* **Sprint Goal:** Configurar el andamiaje del backend, establecer el pipeline de validación automática (CI) con GitHub Actions y desplegar el modelo de usuario personalizado con soporte de roles.
+* **Status:** Terminado
+* **Velocidad (Story Points):** N/A (Sprint inicial de configuración)
+* **Historias Completadas:**
+  * `[P2 - 3 pts]` **US-01**: Inicialización de Arquitectura Base y CI/CD.
+  * `[P1 - 5 pts]` **US-02**: Modelo de Usuario Personalizado y Control de Roles.
+  * `[P2 - 3 pts]` **US-03**: Pipeline de Integración Continua (CI) con GitHub Actions.
 
-### Historias de Usuario
-
-#### [US-01] Inicialización del Entorno y Arquitectura Base
-* **Como:** Desarrollador del sistema.
-* **Quiero:** Estructurar un espacio de trabajo modular con Django 5 y DRF.
-* **Para:** Contar con una base reproducible y desacoplada para los módulos de negocio.
-* **Criterios de Aceptación (DoD):**
-  - [x] Entorno virtual `.venv` aislado con dependencias fijadas en `requirements.txt`.
-  - [x] Proyecto Django `core` inicializado en la raíz del backend.
-  - [x] Archivo `.gitignore` configurado para omitir archivos temporales y secretos.
-  - [x] Servidor de desarrollo validado en ejecución local.
-
-#### [US-02] Modelo de Usuario Personalizado (Custom User Model)
-* **Como:** Usuario de la plataforma (comprador o vendedor).
-* **Quiero:** Registrarme e iniciar sesión utilizando mi correo electrónico como identificador único.
-* **Para:** Tener un acceso seguro y moderno sin requerir nombres de usuario obligatorios.
-* **Criterios de Aceptación (DoD):**
-  - [x] Clase `User` heredando de `AbstractUser`.
-  - [x] Atributo `email` único configurado como `USERNAME_FIELD`.
-  - [x] Banderas booleanas para control de roles: `is_merchant` e `is_customer`.
-  - [x] Directiva `AUTH_USER_MODEL` registrada en `settings.py` previa a la migración inicial.
-  - [x] Migraciones generadas y aplicadas en base de datos.
-
-#### [US-03] Pipeline de Integración Continua (CI) con GitHub Actions
-* **Como:** Ingeniero a cargo del repositorio.
-* **Quiero:** Un flujo automatizado que valide el código en cada commit y Pull Request.
-* **Para:** Garantizar que ningún cambio rompa las pruebas o la configuración del sistema.
-* **Criterios de Aceptación (DoD):**
-  - [x] Definición del workflow en `.github/workflows/backend-ci.yml`.
-  - [x] Configuración del runner sobre Ubuntu con la versión correcta de Python.
-  - [x] Instalación automática de dependencias desde `requirements.txt`.
-  - [x] Ejecución del comando de verificación del sistema (`python manage.py check`).
-  - [x] Ejecución de la suite de pruebas unitarias (`python manage.py test`).
+### Sprint 2: Autenticación y Registro REST
+* **Sprint Goal:** Habilitar el registro público de usuarios y asegurar la API REST mediante un flujo completo de JSON Web Tokens (JWT).
+* **Status:** En Progreso
+* **Puntos Comprometidos:** 13 pts estimados
+* **Historias de Usuario:**
+  * `[P1 - 3 pts]` **US-04:** Implementación de Seguridad y emisión de JWT (Login). *(Terminada)*
+  * `[P1 - 5 pts]` **US-05:** Endpoint de Registro de Nuevos Usuarios (/register). *(En Progreso)*
+  * `[P2 - 5 pts]` **US-06:** Endpoint Protegido de Perfil (/me). *(Sprint Backlog)*
